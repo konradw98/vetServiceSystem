@@ -2,6 +2,7 @@ package com.example.vetServiceSystem.model;
 
 import javax.persistence.Column;
 
+
 public class Person extends BaseEntity {
 
     public Person(Long id, String firstname, String lastname) {
