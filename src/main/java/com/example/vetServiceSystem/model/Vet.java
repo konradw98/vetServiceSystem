@@ -7,7 +7,7 @@ import java.util.Set;
 
 //@Entity
 //@Table(name="vets")
-public class Vet extends  Person{
+public class Vet {
 
     ///TODO Many to Many relationship to implement
     private Set<Speciality> specialities= new HashSet<>();
