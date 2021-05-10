@@ -1,28 +1,31 @@
 package com.example.vetServiceSystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name="types")
-@MappedSuperclass
-public class PetType extends BaseEntity{
+public class PetType {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name="name")
     private String name;
 
-    public PetType(Long id, String name){
-        super(id);
-        this.name=name;
+    public PetType(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public PetType(){};
 
-    @Override
-    public String toString() {
-        return name;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

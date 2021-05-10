@@ -9,8 +9,11 @@ import java.util.Set;
 
 @Entity
 @Table(name="pets")
-@MappedSuperclass
-public class Pet extends BaseEntity {
+public class Pet {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name="name")
     private String name;
@@ -30,8 +33,9 @@ public class Pet extends BaseEntity {
     @OneToMany(cascade =CascadeType.ALL,mappedBy = "pet")
     private Set<Visit> visists=new HashSet<>();
 
+
     public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visists) {
-        super(id);
+        this.id = id;
         this.name = name;
         this.petType = petType;
         this.owner = owner;
@@ -40,6 +44,16 @@ public class Pet extends BaseEntity {
     }
 
     public Pet(){};
+
+
+    public Long getId() {
+        return id;
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

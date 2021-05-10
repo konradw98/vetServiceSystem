@@ -5,8 +5,12 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name="visits")
-@MappedSuperclass
-public class Visit extends BaseEntity{
+public class Visit {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name="date")
     private LocalDate date;
 
@@ -17,14 +21,23 @@ public class Visit extends BaseEntity{
     @JoinColumn(name="pet_id")
     private Pet pet;
 
+
     public Visit(Long id, LocalDate date, String description, Pet pet) {
-        super(id);
+        this.id = id;
         this.date = date;
         this.description = description;
         this.pet = pet;
     }
 
     public Visit(){};
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public LocalDate getDate() {
         return date;

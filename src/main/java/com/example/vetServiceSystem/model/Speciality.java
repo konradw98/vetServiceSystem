@@ -1,25 +1,33 @@
 package com.example.vetServiceSystem.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@MappedSuperclass
 @Table(name = "specialities")
-public class Speciality extends BaseEntity {
+public class Speciality  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "description")
     private String description;
 
     public Speciality(Long id, String description) {
-        super(id);
+        this.id = id;
         this.description = description;
     }
 
-
     public Speciality() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -29,4 +37,6 @@ public class Speciality extends BaseEntity {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
 }

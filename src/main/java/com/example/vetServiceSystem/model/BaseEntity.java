@@ -1,9 +1,12 @@
 package com.example.vetServiceSystem.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+
 
 public class BaseEntity implements Serializable {
     @Id

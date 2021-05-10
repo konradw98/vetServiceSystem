@@ -1,9 +1,13 @@
 package com.example.vetServiceSystem.model;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
-@MappedSuperclass
+
+
 public class Person  {
 
     @Column(name = "first_name")

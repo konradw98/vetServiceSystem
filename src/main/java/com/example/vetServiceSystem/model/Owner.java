@@ -4,10 +4,21 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+
 @Entity
-@MappedSuperclass
 @Table(name="owners")
-public class Owner extends BaseEntity {
+public class Owner  {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "first_name")
+    private String firstname;
+
+    @Column(name = "last_name")
+    private String lastname;
+
 
     @Column(name="address")
     private String address;
@@ -19,17 +30,43 @@ public class Owner extends BaseEntity {
     private String telephoe;
 
     @OneToMany(cascade= CascadeType.ALL,mappedBy = "owner")
-    private Set<Pet> pers = new HashSet<>();
+    private Set<Pet> pets = new HashSet<>();
 
-    public Owner(Long id, String address, String city, String telephoe, Set<Pet> pers) {
-        super(id);
+   public Owner(){};
+
+    public Owner(Long id, String firstname, String lastname, String address, String city, String telephoe, Set<Pet> pets) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.address = address;
         this.city = city;
         this.telephoe = telephoe;
-        this.pers = pers;
+        this.pets = pets;
     }
 
-    public Owner(){};
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     public String getAddress() {
         return address;
@@ -55,11 +92,11 @@ public class Owner extends BaseEntity {
         this.telephoe = telephoe;
     }
 
-    public Set<Pet> getPers() {
-        return pers;
+    public Set<Pet> getPets() {
+        return pets;
     }
 
-    public void setPers(Set<Pet> pers) {
-        this.pers = pers;
+    public void setPets(Set<Pet> pets) {
+        this.pets = pets;
     }
 }
