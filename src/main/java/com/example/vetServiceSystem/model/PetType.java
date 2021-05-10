@@ -2,10 +2,12 @@ package com.example.vetServiceSystem.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="types")
+@MappedSuperclass
 public class PetType extends BaseEntity{
 
     @Column(name="name")

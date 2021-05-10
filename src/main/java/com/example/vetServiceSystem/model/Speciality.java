@@ -2,9 +2,11 @@ package com.example.vetServiceSystem.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 @Entity
+@MappedSuperclass
 @Table(name = "specialities")
 public class Speciality extends BaseEntity {
 
@@ -15,6 +17,7 @@ public class Speciality extends BaseEntity {
         super(id);
         this.description = description;
     }
+
 
     public Speciality() {
     }

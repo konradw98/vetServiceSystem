@@ -1,12 +1,18 @@
 package com.example.vetServiceSystem.model;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 
+@MappedSuperclass
+public class Person  {
 
-public class Person extends BaseEntity {
+    @Column(name = "first_name")
+    private String firstname;
 
-    public Person(Long id, String firstname, String lastname) {
-        super(id);
+    @Column(name = "last_name")
+    private String lastname;
+
+    public Person(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
     }
@@ -14,12 +20,6 @@ public class Person extends BaseEntity {
     public Person(){
         super();
     }
-
-    @Column(name = "first_name")
-    private String firstname;
-
-    @Column(name = "last_name")
-    private String lastname;
 
     public String getFirstname() {
         return firstname;
@@ -36,4 +36,6 @@ public class Person extends BaseEntity {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
+
 }
