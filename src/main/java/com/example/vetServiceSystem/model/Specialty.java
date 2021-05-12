@@ -3,8 +3,8 @@ package com.example.vetServiceSystem.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "specialities")
-public class Speciality  {
+@Table(name = "specialties")
+public class Specialty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -12,12 +12,12 @@ public class Speciality  {
     @Column(name = "description")
     private String description;
 
-    public Speciality(Long id, String description) {
+    public Specialty(Long id, String description) {
         this.id = id;
         this.description = description;
     }
 
-    public Speciality() {
+    public Specialty() {
     }
 
     public Long getId() {
