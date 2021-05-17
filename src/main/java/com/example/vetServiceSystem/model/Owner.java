@@ -27,20 +27,20 @@ public class Owner  {
     private String city;
 
     @Column(name="telephone")
-    private String telephoe;
+    private String telephone;
 
     @OneToMany(cascade= CascadeType.ALL,mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
    public Owner(){};
 
-    public Owner(Long id, String firstname, String lastname, String address, String city, String telephoe, Set<Pet> pets) {
+    public Owner(Long id, String firstname, String lastname, String address, String city, String telephone, Set<Pet> pets) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
         this.city = city;
-        this.telephoe = telephoe;
+        this.telephone = telephone;
         this.pets = pets;
     }
 
@@ -85,11 +85,11 @@ public class Owner  {
     }
 
     public String getTelephoe() {
-        return telephoe;
+        return telephone;
     }
 
     public void setTelephoe(String telephoe) {
-        this.telephoe = telephoe;
+        this.telephone = telephoe;
     }
 
     public Set<Pet> getPets() {
