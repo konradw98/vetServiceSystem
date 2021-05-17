@@ -12,6 +12,10 @@ public class OwnerService {
         return ownerRepository.findById(ownerId).get(); //OPTIONAL OGARNAC
     }
 
+    public void deleteById(Long id){
+        ownerRepository.deleteById(id);
+    }
+
     public OwnerService(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
     }

@@ -15,6 +15,10 @@ public class VisitService {
         return visitRepository.findById(visitId).get(); //OPTIONAL OGARNAC
     }
 
+    public void deleteById(Long id){
+        visitRepository.deleteById(id);
+    }
+
     public VisitService(VisitRepository visitRepository) {
         this.visitRepository = visitRepository;
     }

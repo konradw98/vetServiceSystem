@@ -14,6 +14,9 @@ public class PetService {
         return petRepository.findById(petId).get(); //napisac metode w JPA repository, zeby nie uzywac optionala (w innych serwisach tez)
     }
 
+    public void deleteById(Long id){
+        petRepository.deleteById(id);
+    }
     public PetService(PetRepository petRepository) {
         this.petRepository = petRepository;
     }
