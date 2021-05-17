@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name="vets")
+@Table(name = "vets")
 public class Vet {
     // TO TYLKO VET I SPECIALITY TO NIEWAZNE TO NA KONCU MOZNA NAJWYZEJ I TAK NIE ZMIENIA TO FUNKCJONALNOSCI, NAWET MOZNA TO POMINAC
     ///TODO Many to Many relationship to implement
@@ -24,7 +24,6 @@ public class Vet {
     private Set<Specialty> specialties;
 
 
-
     public Vet(Long id, String firstname, String lastname, Set<Specialty> specialties) {
         this.id = id;
         this.firstname = firstname;
@@ -32,7 +31,10 @@ public class Vet {
         this.specialties = specialties;
     }
 
-    public Vet(){};
+    public Vet() {
+    }
+
+    ;
 
     public Long getId() {
         return id;

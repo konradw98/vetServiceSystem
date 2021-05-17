@@ -6,8 +6,8 @@ import java.util.Set;
 
 
 @Entity
-@Table(name="owners")
-public class Owner  {
+@Table(name = "owners")
+public class Owner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,19 +20,22 @@ public class Owner  {
     private String lastname;
 
 
-    @Column(name="address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name="city")
+    @Column(name = "city")
     private String city;
 
-    @Column(name="telephone")
+    @Column(name = "telephone")
     private String telephone;
 
-    @OneToMany(cascade= CascadeType.ALL,mappedBy = "owner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
-   public Owner(){};
+    public Owner() {
+    }
+
+    ;
 
     public Owner(Long id, String firstname, String lastname, String address, String city, String telephone, Set<Pet> pets) {
         this.id = id;

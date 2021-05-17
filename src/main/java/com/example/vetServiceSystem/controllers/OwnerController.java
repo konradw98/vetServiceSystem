@@ -32,8 +32,8 @@ public class OwnerController {
     }
 
     @GetMapping("/owners/")
-    public List<Owner> getOwners(){
-      return  ownerService.findAll();
+    public List<Owner> getOwners() {
+        return ownerService.findAll();
     }
 
     public OwnerController(OwnerService ownerService) {

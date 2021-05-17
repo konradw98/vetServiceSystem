@@ -14,19 +14,19 @@ public class VisitService {
 
     private VisitRepository visitRepository;
 
-    public Visit findVisitById(long visitId){
+    public Visit findVisitById(long visitId) {
         return visitRepository.findById(visitId).get(); //OPTIONAL OGARNAC
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         visitRepository.deleteById(id);
     }
 
-    public Visit saveVisit(Visit visit){
+    public Visit saveVisit(Visit visit) {
         return visitRepository.save(visit);
     }
 
-    public List<Visit> findAll(){
+    public List<Visit> findAll() {
         return visitRepository.findAll();
     }
 

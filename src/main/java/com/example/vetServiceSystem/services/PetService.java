@@ -16,14 +16,15 @@ public class PetService {
         return petRepository.findById(petId).get(); //napisac metode w JPA repository, zeby nie uzywac optionala (w innych serwisach tez)
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         petRepository.deleteById(id);
     }
 
-    public Pet savePet(Pet pet){
+    public Pet savePet(Pet pet) {
         return petRepository.save(pet);
     }
-    public List<Pet> findAll(){
+
+    public List<Pet> findAll() {
         return petRepository.findAll();
     }
 

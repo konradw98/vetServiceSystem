@@ -10,19 +10,19 @@ import java.util.List;
 public class OwnerService {
     private OwnerRepository ownerRepository;
 
-    public Owner findOwnerById(long ownerId){
+    public Owner findOwnerById(long ownerId) {
         return ownerRepository.findById(ownerId).get(); //OPTIONAL OGARNAC
     }
 
-    public void deleteById(Long id){
+    public void deleteById(Long id) {
         ownerRepository.deleteById(id);
     }
 
-    public Owner saveOwner(Owner owner){
+    public Owner saveOwner(Owner owner) {
         return ownerRepository.save(owner);
     }
 
-    public List<Owner> findAll(){
+    public List<Owner> findAll() {
         return ownerRepository.findAll();
     }
 

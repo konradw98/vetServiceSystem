@@ -4,21 +4,21 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name="visits")
+@Table(name = "visits")
 public class Visit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="date")
+    @Column(name = "date")
     private LocalDate date;
 
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="pet_id")
+    @JoinColumn(name = "pet_id")
     private Pet pet;
 
 
@@ -29,7 +29,10 @@ public class Visit {
         this.pet = pet;
     }
 
-    public Visit(){};
+    public Visit() {
+    }
+
+    ;
 
     public Long getId() {
         return id;

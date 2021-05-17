@@ -13,8 +13,8 @@ public class VisitController {
     private VisitService visitService;
 
     @GetMapping("visit/{visitId}")
-    public Visit findVisitById(@PathVariable long visitId){
-        return  visitService.findVisitById(visitId);
+    public Visit findVisitById(@PathVariable long visitId) {
+        return visitService.findVisitById(visitId);
     }
 
     @DeleteMapping("/visit/{id}")
@@ -28,8 +28,8 @@ public class VisitController {
     }
 
     @GetMapping("/visists/")
-    public List<Visit> getVisitss(){
-        return  visitService.findAll();
+    public List<Visit> getVisitss() {
+        return visitService.findAll();
     }
 
     public VisitController(VisitService visitService) {

@@ -3,14 +3,14 @@ package com.example.vetServiceSystem.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="types")
+@Table(name = "types")
 public class PetType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
     public PetType(Long id, String name) {
@@ -18,7 +18,10 @@ public class PetType {
         this.name = name;
     }
 
-    public PetType(){};
+    public PetType() {
+    }
+
+    ;
 
     public Long getId() {
         return id;

@@ -14,7 +14,7 @@ public class PetController {
     private PetService petService;
 
     @GetMapping("/pet/{petId}")
-    public Pet findPetById(@PathVariable long petId){
+    public Pet findPetById(@PathVariable long petId) {
         return petService.findPetById(petId);
     }
 
@@ -29,8 +29,8 @@ public class PetController {
     }
 
     @GetMapping("/pets/")
-    public List<Pet> getPets(){
-        return  petService.findAll();
+    public List<Pet> getPets() {
+        return petService.findAll();
     }
 
     public PetController(PetService petService) {
