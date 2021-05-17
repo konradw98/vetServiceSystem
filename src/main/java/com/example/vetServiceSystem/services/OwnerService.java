@@ -9,7 +9,7 @@ public class OwnerService {
     private OwnerRepository ownerRepository;
 
     public Owner findOwnerById(long ownerId){
-        return ownerRepository.findById(ownerId).get();
+        return ownerRepository.findById(ownerId).get(); //OPTIONAL OGARNAC
     }
 
     public OwnerService(OwnerRepository ownerRepository) {
