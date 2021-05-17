@@ -5,6 +5,8 @@ import com.example.vetServiceSystem.model.Pet;
 import com.example.vetServiceSystem.repositories.PetRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PetService {
 
@@ -17,6 +19,14 @@ public class PetService {
     public void deleteById(Long id){
         petRepository.deleteById(id);
     }
+
+    public Pet savePet(Pet pet){
+        return petRepository.save(pet);
+    }
+    public List<Pet> findAll(){
+        return petRepository.findAll();
+    }
+
     public PetService(PetRepository petRepository) {
         this.petRepository = petRepository;
     }

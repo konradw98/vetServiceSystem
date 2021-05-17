@@ -1,11 +1,12 @@
 package com.example.vetServiceSystem.controllers;
 
+import com.example.vetServiceSystem.model.Owner;
 import com.example.vetServiceSystem.model.Visit;
 import com.example.vetServiceSystem.services.VisitService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class VisitController {
@@ -19,6 +20,16 @@ public class VisitController {
     @DeleteMapping("/visit/{id}")
     void deleteById(@PathVariable Long id) {
         visitService.deleteById(id);
+    }
+
+    @PostMapping("/visits")
+    Visit newVisit(@RequestBody Visit newVisit) {
+        return visitService.saveVisit(newVisit);
+    }
+
+    @GetMapping("/visists/")
+    public List<Visit> getVisitss(){
+        return  visitService.findAll();
     }
 
     public VisitController(VisitService visitService) {
