@@ -18,6 +18,10 @@ public class OwnerService {
         ownerRepository.deleteById(id);
     }
 
+    public List<Owner> findAllByLastNameLike(String name){
+        return ownerRepository.findByLastName(name);
+    }
+
     public Owner saveOwner(Owner owner) {
         return ownerRepository.save(owner);
     }
