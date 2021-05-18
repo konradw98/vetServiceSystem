@@ -30,7 +30,7 @@ public class OwnerController {
 
 
 
-    @DeleteMapping("/owner/{id}")
+    /*@DeleteMapping("/owner/{id}")
     void deleteById(@PathVariable Long id) {
         ownerService.deleteById(id);
     }
@@ -44,7 +44,7 @@ public class OwnerController {
 
         mav.addObject("owner",owner);
         return mav;
-    }
+    }*/
 
    /* @RequestMapping({"owners","owners/index","owners/index/index.html"})
     public String listOwners(Model model){
@@ -66,6 +66,13 @@ public class OwnerController {
 
         model.addAttribute("owner", new Owner());
         return "owners/findOwners";
+    }
+
+    @GetMapping("owners/{ownerId}")
+    public ModelAndView showOwner(@PathVariable Long ownerId) {
+        ModelAndView mav = new ModelAndView("owners/ownerDetails");
+        mav.addObject(ownerService.findById(ownerId));
+        return mav;
     }
 
     @GetMapping("/owners")
