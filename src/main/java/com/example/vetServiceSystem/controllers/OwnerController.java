@@ -15,10 +15,10 @@ public class OwnerController {
 
     private final OwnerService ownerService;
 
-    @GetMapping("/owner/{ownerId}")
+   /* @GetMapping("/owner/{ownerId}")
     public Owner getOwnerById(@PathVariable long ownerId) {
         return ownerService.findById(ownerId);
-    }
+    }*/
 
 
     @PostMapping("/owners")
@@ -36,14 +36,14 @@ public class OwnerController {
         return ownerService.findAll();
     }
 
-   /* @GetMapping("/owner1/{ownerId}")
+    @GetMapping("/owner/{ownerId}")
     public ModelAndView showOwner(@PathVariable Long ownerId) {
         ModelAndView mav = new ModelAndView("/owners/ownerDetails");
         Owner owner= ownerService.findById(ownerId);
 
         mav.addObject("owner",owner);
         return mav;
-    }*/
+    }
 
     @RequestMapping({"owners","owners/index","owners/index/index.html"})
     public String listOwners(Model model){

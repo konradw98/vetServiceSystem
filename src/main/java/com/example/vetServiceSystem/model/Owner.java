@@ -36,11 +36,10 @@ public class Owner {
     }
 
 
-
-    public Owner(Long id, String firstname, String lastname, String address, String city, String telephone, Set<Pet> pets) {
+    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
         this.id = id;
-        this.firstName = firstname;
-        this.lastName = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.address = address;
         this.city = city;
         this.telephone = telephone;
@@ -55,20 +54,28 @@ public class Owner {
         this.id = id;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstName = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastName = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getAddress() {
@@ -87,13 +94,6 @@ public class Owner {
         this.city = city;
     }
 
-    public String getTelephoe() {
-        return telephone;
-    }
-
-    public void setTelephoe(String telephoe) {
-        this.telephone = telephoe;
-    }
 
     public Set<Pet> getPets() {
         return pets;
