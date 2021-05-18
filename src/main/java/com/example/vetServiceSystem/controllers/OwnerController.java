@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.IOException;
+
 import java.util.List;
 
 @Controller
@@ -16,10 +16,9 @@ public class OwnerController {
 
     @GetMapping("/owner/{ownerId}")
     public Owner getOwnerById(@PathVariable long ownerId) {
-
-        return ownerService.findOwnerById(ownerId);
-
+        return ownerService.findById(ownerId);
     }
+
 
     @PostMapping("/owners")
     Owner newOwner(@RequestBody Owner newOwner) {
@@ -35,6 +34,18 @@ public class OwnerController {
     public List<Owner> getOwners() {
         return ownerService.findAll();
     }
+
+   /* @GetMapping("/owner1/{ownerId}")
+    public ModelAndView showOwner(@PathVariable Long ownerId) {
+        ModelAndView mav = new ModelAndView("/owners/ownerDetails");
+        Owner owner= ownerService.findById(ownerId);
+
+        mav.addObject("owner",owner);
+        return mav;
+    }*/
+
+
+
 
     public OwnerController(OwnerService ownerService) {
         this.ownerService = ownerService;

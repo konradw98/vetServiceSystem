@@ -14,10 +14,10 @@ public class Owner {
     private Long id;
 
     @Column(name = "first_name")
-    private String firstname;
+    private String firstName;
 
     @Column(name = "last_name")
-    private String lastname;
+    private String lastName;
 
 
     @Column(name = "address")
@@ -35,12 +35,12 @@ public class Owner {
     public Owner() {
     }
 
-    ;
+
 
     public Owner(Long id, String firstname, String lastname, String address, String city, String telephone, Set<Pet> pets) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstname;
+        this.lastName = lastname;
         this.address = address;
         this.city = city;
         this.telephone = telephone;
@@ -56,19 +56,19 @@ public class Owner {
     }
 
     public String getFirstname() {
-        return firstname;
+        return firstName;
     }
 
     public void setFirstname(String firstname) {
-        this.firstname = firstname;
+        this.firstName = firstname;
     }
 
     public String getLastname() {
-        return lastname;
+        return lastName;
     }
 
     public void setLastname(String lastname) {
-        this.lastname = lastname;
+        this.lastName = lastname;
     }
 
     public String getAddress() {

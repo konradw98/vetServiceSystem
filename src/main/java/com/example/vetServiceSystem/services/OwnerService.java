@@ -10,7 +10,7 @@ import java.util.List;
 public class OwnerService {
     private OwnerRepository ownerRepository;
 
-    public Owner findOwnerById(long ownerId) {
+    public Owner findById(long ownerId) {
         return ownerRepository.findById(ownerId).get(); //OPTIONAL OGARNAC
     }
 
