@@ -31,22 +31,22 @@ public class Pet {
     private LocalDate birthDate;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
-    private Set<Visit> visists = new HashSet<>();
+    private Set<Visit> visits = new HashSet<>();
 
 
-    public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visists) {
+    public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visits) {
         this.id = id;
         this.name = name;
         this.petType = petType;
         this.owner = owner;
         this.birthDate = birthDate;
-        this.visists = visists;
+        this.visits = visits;
     }
 
     public Pet() {
     }
 
-    ;
+
 
 
     public Long getId() {
@@ -90,11 +90,11 @@ public class Pet {
         this.birthDate = birthDate;
     }
 
-    public Set<Visit> getVisists() {
-        return visists;
+    public Set<Visit> getVisits() {
+        return visits;
     }
 
-    public void setVisists(Set<Visit> visists) {
-        this.visists = visists;
+    public void setVisits(Set<Visit> visits) {
+        this.visits = visits;
     }
 }

@@ -21,7 +21,6 @@ public class PetType {
     public PetType() {
     }
 
-    ;
 
     public Long getId() {
         return id;
@@ -37,5 +36,10 @@ public class PetType {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

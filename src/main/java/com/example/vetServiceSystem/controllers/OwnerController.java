@@ -4,6 +4,7 @@ import com.example.vetServiceSystem.model.Owner;
 import com.example.vetServiceSystem.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,6 +21,11 @@ public class OwnerController {
         return ownerService.findById(ownerId);
     }*/
 
+
+    @InitBinder
+    public void setAllowedFields(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+    }
 
     @PostMapping("/owners")
     Owner newOwner(@RequestBody Owner newOwner) {

@@ -4,6 +4,7 @@ import com.example.vetServiceSystem.model.Owner;
 import com.example.vetServiceSystem.model.Pet;
 import com.example.vetServiceSystem.services.PetService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +13,11 @@ import java.util.List;
 public class PetController {
 
     private PetService petService;
+
+    @InitBinder
+    public void setAllowedFields(WebDataBinder dataBinder) {
+        dataBinder.setDisallowedFields("id");
+    }
 
     @GetMapping("/pet/{petId}")
     public Pet findPetById(@PathVariable long petId) {
