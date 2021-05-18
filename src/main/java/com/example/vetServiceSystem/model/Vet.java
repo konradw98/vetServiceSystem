@@ -67,4 +67,14 @@ public class Vet {
     public void setSpecialties(Set<Specialty> specialties) {
         this.specialties = specialties;
     }
+
+    @Override
+    public String toString() {
+        return "Vet{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", specialties=" + specialties +
+                '}';
+    }
 }
