@@ -34,7 +34,7 @@ public class Vet {
     public Vet() {
     }
 
-    ;
+
 
     public Long getId() {
         return id;
