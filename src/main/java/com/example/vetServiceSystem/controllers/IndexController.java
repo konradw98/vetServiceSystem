@@ -11,4 +11,9 @@ public class IndexController {
 
         return "index";
     }
+    @RequestMapping("/welcome")
+    public String welcome(){
+
+        return "welcome";
+    }
 }
