@@ -85,6 +85,15 @@ public class OwnerController {
         Long ownerId=visit.getPet().getOwner().getId();
         visitService.deleteById(visitId);
 
+        return "redirect:/owners/"+ownerId;//+pet.getOwner().getId();
+
+    }
+
+    @RequestMapping("owners/delete/pet/{petId}")// tu dzialam
+    public String deletePet(@PathVariable Long petId){
+        Pet pet=petService.findPetById(petId);
+        Long ownerId=pet.getOwner().getId();
+        petService.deleteById(petId);
 
 
         return "redirect:/owners/"+ownerId;//+pet.getOwner().getId();

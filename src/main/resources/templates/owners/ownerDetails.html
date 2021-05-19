@@ -40,6 +40,8 @@
 <table class="table table-striped">
 
   <tr th:each="pet : ${owner.pets}">
+      <td><a
+              th:href="@{delete/pet/{petId}(petId=${pet.id})}"> DELETE PET</a></td>
     <td valign="top">
       <dl class="dl-horizontal">
         <dt>Name</dt>
