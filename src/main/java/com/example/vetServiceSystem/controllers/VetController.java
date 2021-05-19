@@ -19,9 +19,7 @@ public class VetController {
     @RequestMapping("vets")
     public String listVets(Model model){
         List<Vet> vets=vetService.findAll();
-        for (Vet vet: vets) {
-            System.out.println(vet);
-        }
+
         model.addAttribute("vets",vets);
 
 

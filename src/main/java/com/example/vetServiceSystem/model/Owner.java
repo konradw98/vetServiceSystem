@@ -102,4 +102,17 @@ public class Owner {
     public void setPets(Set<Pet> pets) {
         this.pets = pets;
     }
+
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", pets=" + pets +
+                '}';
+    }
 }

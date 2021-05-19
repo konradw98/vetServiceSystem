@@ -1,7 +1,9 @@
 package com.example.vetServiceSystem.controllers;
 
 import com.example.vetServiceSystem.model.Owner;
+import com.example.vetServiceSystem.model.Pet;
 import com.example.vetServiceSystem.services.OwnerService;
+import com.example.vetServiceSystem.services.PetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,13 +20,10 @@ import java.util.List;
 public class OwnerController {
 
     private final OwnerService ownerService;
+    private  final PetService petService;
 
 
 
-   /* @GetMapping("/owner/{ownerId}")
-    public Owner getOwnerById(@PathVariable long ownerId) {
-        return ownerService.findById(ownerId);
-    }*/
 
 
     @InitBinder
@@ -37,18 +36,27 @@ public class OwnerController {
     /*@DeleteMapping("/owner/{id}")
     void deleteById(@PathVariable Long id) {
         ownerService.deleteById(id);
+    }*/
+
+
+    @RequestMapping("/pets/new/{ownerId}")
+    public String addPet(@PathVariable Long ownerId, Model model){
+       //dodac model Pet i dodacc id
+        Pet pet= new Pet();
+        model.addAttribute("pet",pet);
+        model.addAttribute("ownerId",ownerId);
+
+        return "pets/newPet";
+
+    }
+    @RequestMapping("pets/new/savePet/owner/{ownerId}")
+    public String saveOwner(@ModelAttribute("pet") Pet pet, @PathVariable Long ownerId){
+        pet.setOwner(ownerService.findById(ownerId));
+        petService.savePet(pet);
+
+        return "redirect:/owners/"+ownerId;//+pet.getOwner().getId();
     }
 
-
-
-    @GetMapping("/owner/{ownerId}")
-    public ModelAndView showOwner(@PathVariable Long ownerId) {
-        ModelAndView mav = new ModelAndView("/owners/ownerDetails");
-        Owner owner= ownerService.findById(ownerId);
-
-        mav.addObject("owner",owner);
-        return mav;
-    }*/
 
    @RequestMapping("owners/index")
     public String listOwners(Model model){
@@ -59,7 +67,7 @@ public class OwnerController {
     }
 
     @RequestMapping("/owners/new")
-    public String showNewMealForm(Model model){
+    public String showNewOwnerForm(Model model){
 
         Owner owner=new Owner();
 
@@ -69,16 +77,12 @@ public class OwnerController {
     }
 
     @RequestMapping(value="owners/saveOwner")
-    public String saveProduct(@ModelAttribute("owner") Owner owner){
+    public String saveOwner(@ModelAttribute("owner") Owner owner){
 
         ownerService.save(owner);
-        return "redirect:/owners/index";
+        return "redirect:/owners/"+owner.getId();
     }
 
-    @RequestMapping("owners/find")
-    public String findOwners(){
-        return "notimplemented";
-    }
 
     @RequestMapping("/find")
     public String findOwners(Model model){
@@ -94,7 +98,7 @@ public class OwnerController {
         return mav;
     }
 
-    @GetMapping("/owners")
+    @GetMapping("/ownersFind")
     public String processFindForm(Owner owner, BindingResult result, Model model){
         // allow parameterless GET request for /owners to return all records
         if (owner.getLastName() == null) {
@@ -121,30 +125,9 @@ public class OwnerController {
         }
     }
 
-   /* @RequestMapping("test")
-    public String check(){
-        return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
-    }
 
-    @GetMapping("owners/new")
-    public String initCreationForm(Model model) {
-        model.addAttribute("owner", new Owner());
-        return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
-    }
-
-    @PostMapping("owners/new")
-    public String processCreationForm(@Valid Owner owner, BindingResult result) {
-        if (result.hasErrors()) {
-            return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
-        } else {
-            Owner savedOwner =  ownerService.save(owner);
-            return "redirect:/owners/" + savedOwner.getId();
-        }
-    }*/
-
-
-
-    public OwnerController(OwnerService ownerService) {
+    public OwnerController(OwnerService ownerService, PetService petService) {
         this.ownerService = ownerService;
+        this.petService = petService;
     }
 }

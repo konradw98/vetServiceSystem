@@ -15,26 +15,8 @@ import java.util.List;
 public class VisitController {
     private VisitService visitService;
 
-    @GetMapping("visit/{visitId}")
-    public Visit findVisitById(@PathVariable long visitId) {
-        return visitService.findVisitById(visitId);
-    }
 
-    @DeleteMapping("/visit/{id}")
-    void deleteById(@PathVariable Long id) {
-        visitService.deleteById(id);
-    }
 
-    @PostMapping("/visits")
-    Visit newVisit(@RequestBody Visit newVisit) {
-        return visitService.saveVisit(newVisit);
-    }
-
-    @GetMapping("/visists/")
-    public List<Visit> getVisitss() {
-        return visitService.findAll();
-
-    }
 
     @InitBinder
     public void dataBinder(WebDataBinder dataBinder) {

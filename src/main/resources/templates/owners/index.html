@@ -17,8 +17,8 @@
     <tbody>
     <tr th:each="owner: ${owners}">
         <td th:text="${owner.id}">Id</td>
-        <td th:text="${owner.firstname}">firstName</td>
-        <td th:text="${owner.lastname}">lastName</td>
+        <td th:text="${owner.firstName}">firstName</td>
+        <td th:text="${owner.lastName}">lastName</td>
 
 
     </tr>
@@ -26,6 +26,7 @@
 
 
 </table>
-<a th:href="@{'/vets'}">VET-LIST</a>
+
+
 </body>
 </html>

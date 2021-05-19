@@ -16,9 +16,8 @@
     </thead>
     <tbody>
     <tr th:each="vet: ${vets}">
-        <td th:text="${vet.getFirstName()}">firstName</td>
-        <td th:text="${vet.getLastName()}">lastName</td>
-        <td th:text="${vet.getSpeciality()}">lastName</td>
+        <td th:text="${vet.firstName}">firstName</td>
+        <td th:text="${vet.lastName}">lastName</td>
 
     </tr>
     </tbody>
