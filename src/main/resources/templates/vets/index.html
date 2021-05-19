@@ -5,7 +5,7 @@
     <title>List of Owners</title>
 </head>
 <body>
-<h1 th:text="'List of Vets'">List of Owners</h1>
+<h1 th:text="'List of Vets'">List of Vet</h1>
 <table>
     <thead>
     <tr>
@@ -16,10 +16,9 @@
     </thead>
     <tbody>
     <tr th:each="vet: ${vets}">
-        <td th:text="${vet.id}">Id</td>
-        <td th:text="${vet.firstname}">firstName</td>
-        <td th:text="${vet.lastname}">lastName</td>
-
+        <td th:text="${vet.getFirstName()}">firstName</td>
+        <td th:text="${vet.getLastName()}">lastName</td>
+        <td th:text="${vet.getSpeciality()}">lastName</td>
 
     </tr>
     </tbody>

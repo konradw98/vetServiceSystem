@@ -11,6 +11,10 @@ import java.util.List;
 public class VetService {
     VetRepository vetRepository;
 
+    public Vet save(Vet vet){
+        return  vetRepository.save(vet);
+    }
+
     public List<Vet> findAll() {
         return vetRepository.findAll();
     }

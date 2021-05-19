@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
+import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
 public class OwnerController {
 
     private final OwnerService ownerService;
+
+
 
    /* @GetMapping("/owner/{ownerId}")
     public Owner getOwnerById(@PathVariable long ownerId) {
@@ -46,15 +50,30 @@ public class OwnerController {
         return mav;
     }*/
 
-   /* @RequestMapping({"owners","owners/index","owners/index/index.html"})
+   @RequestMapping("owners/index")
     public String listOwners(Model model){
 
         model.addAttribute("owners",ownerService.findAll());
 
         return  "owners/index";
-    }*/
+    }
 
+    @RequestMapping("/owners/new")
+    public String showNewMealForm(Model model){
 
+        Owner owner=new Owner();
+
+        model.addAttribute("owner", owner);
+
+        return "owners/newOwner";
+    }
+
+    @RequestMapping(value="owners/saveOwner")
+    public String saveProduct(@ModelAttribute("owner") Owner owner){
+
+        ownerService.save(owner);
+        return "redirect:/owners/index";
+    }
 
     @RequestMapping("owners/find")
     public String findOwners(){
@@ -102,6 +121,26 @@ public class OwnerController {
         }
     }
 
+   /* @RequestMapping("test")
+    public String check(){
+        return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
+    }
+
+    @GetMapping("owners/new")
+    public String initCreationForm(Model model) {
+        model.addAttribute("owner", new Owner());
+        return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
+    }
+
+    @PostMapping("owners/new")
+    public String processCreationForm(@Valid Owner owner, BindingResult result) {
+        if (result.hasErrors()) {
+            return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
+        } else {
+            Owner savedOwner =  ownerService.save(owner);
+            return "redirect:/owners/" + savedOwner.getId();
+        }
+    }*/
 
 
 
