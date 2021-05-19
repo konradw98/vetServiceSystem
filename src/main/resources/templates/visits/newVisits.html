@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>new_meal</title>
+</head>
+
+<body>
+
+
+<div align="center">
+    <h1>Create New Visit</h1>
+    <br/>
+<-- pets/visits/new/saveVisit/{petId} pets/visits/new/pets/visits/new/saveVisit/17 -->
+    <form action="#" th:action="@{saveVisit/{id}(id=${petId})}" th:object="${visit}" method="post">
+        <table border="0" cellpadding="10">
+
+            <tr>
+                <td>Description</td>
+                <td><input type="text" th:field="*{description}"/></td>
+            </tr>
+            <tr>
+                <td>DATEate:(FORMAT)2010-05-08 </td>
+                <td><input type="text" th:field="*{date}"/></td>
+            </tr>
+
+
+
+            <tr><td colspan="2"><button type="submit">Save</button></td></tr>
+        </table>
+
+
+
+    </form>
+</div>
+
+</body>
+</html>

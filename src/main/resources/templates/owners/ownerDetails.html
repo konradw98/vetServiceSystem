@@ -62,13 +62,15 @@
        <tr th:each="visit : ${pet.visits}">
           <td th:text="${visit.date}"></td>
           <td th:text="${visit?.description}"></td>
+           <td><a
+                   th:href="@{delete/visit/{visitId}(visitId=${visit.id})}"> DELETE VISIT</a></td>
         </tr>
         <tr>
-         <!-- <td><a
+         <!-- <td><a delete/visit/{visitId}
                   th:href="@{{ownerId}/pets/{petId}/edit(ownerId=${owner.id},petId=${pet.id})}">Edit
             Pet</a></td>-->
           <td><a
-                  th:href="@{{ownerId}/pets/{petId}/visits/new(ownerId=${owner.id},petId=${pet.id})}">Add
+                  th:href="@{/pets/visits/new/{petId}(petId=${pet.id})}">Add
             Visit</a></td>
         </tr>
       </table>

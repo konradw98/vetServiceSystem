@@ -15,7 +15,7 @@ public class VisitService {
     private VisitRepository visitRepository;
 
     public Visit findVisitById(long visitId) {
-        return visitRepository.findById(visitId).get(); //OPTIONAL OGARNAC
+        return visitRepository.geVisitById(visitId); //OPTIONAL OGARNAC
     }
 
     public void deleteById(Long id) {

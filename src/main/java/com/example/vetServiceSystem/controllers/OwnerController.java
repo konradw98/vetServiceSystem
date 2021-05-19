@@ -2,8 +2,10 @@ package com.example.vetServiceSystem.controllers;
 
 import com.example.vetServiceSystem.model.Owner;
 import com.example.vetServiceSystem.model.Pet;
+import com.example.vetServiceSystem.model.Visit;
 import com.example.vetServiceSystem.services.OwnerService;
 import com.example.vetServiceSystem.services.PetService;
+import com.example.vetServiceSystem.services.VisitService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,7 +23,7 @@ public class OwnerController {
 
     private final OwnerService ownerService;
     private  final PetService petService;
-
+    private final VisitService visitService;
 
 
 
@@ -50,11 +52,43 @@ public class OwnerController {
 
     }
     @RequestMapping("pets/new/savePet/owner/{ownerId}")
-    public String saveOwner(@ModelAttribute("pet") Pet pet, @PathVariable Long ownerId){
+    public String savePet(@ModelAttribute("pet") Pet pet, @PathVariable Long ownerId){
         pet.setOwner(ownerService.findById(ownerId));
         petService.savePet(pet);
 
         return "redirect:/owners/"+ownerId;//+pet.getOwner().getId();
+    }
+
+    //pets/visits/new/2/1/
+    //pets/visits/new/pets/visits/new/saveVisit/17
+    @RequestMapping("/pets/visits/new/{petId}")
+    public String addVisit(@PathVariable Long petId,Model model){
+        Visit visit= new Visit();
+        model.addAttribute("visit",visit);
+        model.addAttribute("petId",petId);
+        return "visits/newVisits";
+    }
+
+    @RequestMapping("pets/visits/new/saveVisit/{petId}")
+    public String savePet(@ModelAttribute("visit") Visit visit, @PathVariable Long petId){
+        Pet pet=petService.findPetById(petId);
+        visit.setPet(pet);
+        visitService.saveVisit(visit);
+        return "redirect:/owners/"+pet.getOwner().getId();//+pet.getOwner().getId();
+
+    }
+
+    @RequestMapping("owners/delete/visit/{visitId}")// tu dzialam
+    public String deleteVisit(@PathVariable Long visitId){
+
+        Visit visit=visitService.findVisitById(visitId);
+        Long ownerId=visit.getPet().getOwner().getId();
+        visitService.deleteById(visitId);
+
+
+
+        return "redirect:/owners/"+ownerId;//+pet.getOwner().getId();
+
     }
 
     @RequestMapping("delete/{ownerId}")
@@ -131,8 +165,9 @@ public class OwnerController {
     }
 
 
-    public OwnerController(OwnerService ownerService, PetService petService) {
+    public OwnerController(OwnerService ownerService, PetService petService, VisitService visitService) {
         this.ownerService = ownerService;
         this.petService = petService;
+        this.visitService = visitService;
     }
 }
