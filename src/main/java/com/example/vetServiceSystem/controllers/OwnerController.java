@@ -57,6 +57,11 @@ public class OwnerController {
         return "redirect:/owners/"+ownerId;//+pet.getOwner().getId();
     }
 
+    @RequestMapping("delete/{ownerId}")
+    public String deletOwner(@PathVariable Long ownerId){
+        ownerService.deleteById(ownerId);
+        return "index";
+    }
 
    @RequestMapping("owners/index")
     public String listOwners(Model model){
