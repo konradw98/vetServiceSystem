@@ -132,7 +132,7 @@ public class OwnerController {
     }
 
 
-    @RequestMapping("/find")
+    @RequestMapping("find")
     public String findOwners(Model model){
 
         model.addAttribute("owner", new Owner());
