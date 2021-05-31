@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
 
-  <body>
+<head>
+    <!-- <meta charset="UTF-8"/> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner List Index</title>
 
-    <h2>Owners</h2>
+    <link rel="stylesheet" href="eVetStyle.css">
+</head>
 
-    <table id="vets" class="table table-striped">
-        <thead>
-        <tr>
-            <th style="width: 150px;">Name</th>
-            <th style="width: 200px;">Address</th>
-            <th>City</th>
-            <th style="width: 120px">Telephone</th>
-            <th>Pets</th>
-        </tr>
-        </thead>
-        <tbody>
-          <tr th:each="owner : ${selections}">
-              <td>
-                  <a th:href="@{/owners/__${owner.id}__}" th:text="${owner.firstName + ' ' + owner.lastName}"/></a>
-              </td>
-              <td th:text="${owner.address}"/>
-              <td th:text="${owner.city}"/>
-              <td th:text="${owner.telephone}"/>
-              <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td>
-          </tr>
-        </tbody>
-    </table>
+<body>
+    <div id="wrapper">
+        <h2>Właściciele:</h2>
 
-  </body>
+        <table id="vets" class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 150px;">Imię i nazwisko</th>
+                    <th style="width: 200px;">Adres</th>
+                    <th>Miasto</th>
+                    <th style="width: 120px">Telefon</th>
+                    <th>Zwierzę</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="owner : ${selections}">
+                    <td>
+                        <a th:href="@{/owners/__${owner.id}__}" th:text="${owner.firstName + ' ' + owner.lastName}"/></a>
+                    </td>
+                    <td th:text="${owner.address}" />
+                    <td th:text="${owner.city}" />
+                    <td th:text="${owner.telephone}" />
+                    <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
 </html>

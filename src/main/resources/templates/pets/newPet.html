@@ -1,41 +1,49 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="newPetsStyle.css">
     <title>new_meal</title>
 </head>
 
 <body>
+    <div id="wrapper">
 
+        <div align="center">
+            <h1>Dodaj nowe zwierzę</h1>
+            <br />
 
-<div align="center">
-    <h1>Create New Pet</h1>
-    <br/>
-
-    <form action="#" th:action="@{savePet/owner/{id}(id=${ownerId})}" th:object="${pet}" method="post">
-        <table border="0" cellpadding="10">
-            <tr>
-                <td>name:</td>
-                <td><input type="text" th:field="*{name}"/></td>
-            </tr>
-            <tr>
-                <td>type id</td>
-                <td><input type="text" th:field="*{petType}"/></td>
-            </tr>
-            <tr>
-                <td>birth date:(FORMAT)2010-05-08 </td>
-                <td><input type="text" th:field="*{birthDate}"/></td>
-            </tr>
-
-
-
-            <tr><td colspan="2"><button type="submit">Save</button></td></tr>
-        </table>
+            <form action="#" th:action="@{savePet/owner/{id}(id=${ownerId})}" th:object="${pet}" method="post">
+                <table border="0" cellpadding="10">
+                    <tr>
+                        <td>Imię:</td>
+                        <td><input type="text" th:field="*{name}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Numer ID:</td>
+                        <td><input type="text" th:field="*{petType}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Data urodzenia: (FORMAT: 2010-05-08) </td>
+                        <td><input type="text" th:field="*{birthDate}" /></td>
+                    </tr>
 
 
 
-    </form>
-</div>
+                    <tr>
+                        <td colspan="2"><button type="submit">Zapisz</button></td>
+                    </tr>
+                </table>
 
+
+
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>

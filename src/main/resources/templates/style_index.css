@@ -1,0 +1,87 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* box-sizing: border-box; */
+}
+
+body {
+    background-color: white;
+}
+
+#wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgb(211, 230, 221);
+}
+
+img.firstphoto {
+    /* margin: 0 10px 10px 0; */
+    /* width: 25%; */
+    /* border-radius: 50% 50% 50% 50%; */
+    /* border: 2px solid blue; */
+}
+
+header div:nth-child(1) {
+    font-style: normal;
+    position: absolute;
+    padding: 50px 180px;
+    font-size: 75px;
+    color: blueviolet;
+}
+
+header div:nth-child(2) {
+    font-style: bold;
+    font-style: normal;
+    position: absolute;
+    padding: 20px 100px;
+    color: rgb(105, 0, 204);
+    font-size: 27px;
+}
+
+header div:nth-child(3) {
+    font-style: bold;
+    font-style: normal;
+    position: absolute;
+    padding: 180px 220px;
+    color: black;
+    font-size: 22px;
+}
+
+header img{
+    width: 100%;
+    display: block;
+}
+
+
+
+nav {
+    /*background-color: darkcyan;*/
+    overflow: hidden;
+}
+
+/* h1 {
+    text-align: center;
+} */
+
+nav a {
+    display: block;
+    width: 100%;
+    float: left;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(0, 111, 139);
+    padding: 15px 30px 15px 30px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+a.menu:hover {
+    font-size: 22px;
+    background-color: blueviolet;
+}
+
+.active {
+    background-color: blueviolet;
+}

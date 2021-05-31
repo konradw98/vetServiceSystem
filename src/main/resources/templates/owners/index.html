@@ -1,32 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8"/>
+    <!-- <meta charset="UTF-8"/> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Owners</title>
+
+    <link rel="stylesheet" href="indexOwnersStyle.css">
 </head>
+
 <body>
-<h1 th:text="'List of Owners'">List of Owners</h1>
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr th:each="owner: ${owners}">
-        <td th:text="${owner.id}">Id</td>
-        <td th:text="${owner.firstName}">firstName</td>
-        <td th:text="${owner.lastName}">lastName</td>
+    <div id="wrapper">
+        <h1 th:text="'List of Owners'">Lista właścicieli</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Numer ID</th>
+                    <th>Imię</th>
+                    <th>Nazwisko</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="owner: ${owners}">
+                    <td th:text="${owner.id}">Id</td>
+                    <td th:text="${owner.firstName}">firstName</td>
+                    <td th:text="${owner.lastName}">lastName</td>
 
 
-    </tr>
-    </tbody>
+                </tr>
+            </tbody>
 
 
-</table>
-
+        </table>
+    </div>
 
 </body>
+
 </html>

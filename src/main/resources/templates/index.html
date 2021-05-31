@@ -1,26 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="pl" xmlns:th="http: //www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8"/>
+    <!-- <meta charset="UTF-8"/> -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Clinic Index</title>
+
+    <link rel="stylesheet" href="style_index.css">
 </head>
+
 <body>
-<h1 th:text="'Index Page!'">Index Page</h1>
+    <div id="wrapper">
+        <h1 th:text="'Index Page!'"></h1>
+        <header>
+            <div>eVetService</div>
+            <div>Obsługa wizyt dla przychodni weterynaryjnej</div>
+            <div> 
+                <p>Kontakt:
+                </p>
+                <p>e-mail: evetservice@gmail.com
+                </p>
+                <p>telefon: + 48 310 320 330
+                </p>
+            </div>
+            <img class="firstphoto" src="photo2.jpg" />
+            <!-- <img src="photo2.jpg"/> -->
+
+            <!-- <a href="https://pl.freepik.com/zdjecia/medyczny">Medyczny zdjęcie utworzone przez freepik - pl.freepik.com</a> -->
+
+        </header>
+
+        <nav>
+            <!-- <p>WSZYSTKIE DZIALAJACE LINKI Z OPISAMI</p> -->
+            <a class="menu" th:href="@{'/vets'}">LISTA WETERYNARZY</a>
+            <br>
+            <a class="menu" th:href="@{/vets}">LISTA WETERYNARZY 2</a>
+            <br>
+            <a class="menu" th:href="@{'owners/index'}">WYŚWIETL LISTĘ WŁAŚCICIELI</a>
+            <br>
+            <!-- <a class="menu" th:href="@{'/welcome'}">WYŚWIETL NAPIS WELCOME</a> -->
+            <br>
+            <a class="menu" th:href="@{'/owners/new'}">DODAJ NOWEGO WŁAŚCICIELA</a>
+            <br>
+            <a class="menu" th:href="@{'/owners/1'}">ZWRÓĆ WŁAŚCICIELA PO ID (W TYM PRZYPADKU DLA ID =1)</a>
+            <br>
+            <a class="menu" th:href="@{'find'}">WYSZUKAJ WŁAŚCICIELA PO NAZWISKU</a>
+        </nav>
+
+        <footer>
+            <div></div>
+        </footer>
+
+
+
+    </div>
 
 </body>
 
-<p>WSZYSTKIE DZIALAJACE LINKI Z OPISAMI</p>
-<a th:href="@{'/vets'}">WYSWIETLA LISTE WETERYNARZY</a>
-<br>
-<a th:href="@{/vets}">WYSWIETLA LISTE WETERYNARZY2</a>
-<br>
-<a th:href="@{'owners/index'}">WYSWIETLA LISTE WLASCICIELI</a>
-<br>
-<a th:href="@{'/welcome'}">WYSWIETLA NAPIS WELCOME</a>
-<br>
-<a th:href="@{'/owners/new'}">DODAJE NOWEGO WLASCICIELA</a>
-<br>
-<a th:href="@{'/owners/1'}">ZWRACA WLASCICIELA PO ID W TYM PRZYPADKU DLA ID =1</a>
-<br>
-<a th:href="@{'find'}">POZWALA WYSZUKAC WLASCICIELA PO NAZWISKU</a>
 </html>

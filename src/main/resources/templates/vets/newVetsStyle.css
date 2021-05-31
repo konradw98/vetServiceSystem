@@ -1,0 +1,36 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* box-sizing: border-box; */
+}
+
+body {
+    background-color: white;
+}
+
+#wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: rgb(211, 230, 221);
+}
+
+
+h1 {
+    font-size: 40px;
+}
+
+form td {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button {
+    font-size: 30px;
+    float: right;
+    margin: 10px 0;
+}
+
+button:hover {
+    background-color: yellowgreen;
+}
