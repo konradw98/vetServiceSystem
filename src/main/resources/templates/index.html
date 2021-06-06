@@ -5,9 +5,18 @@
     <title>Pet Clinic Index</title>
 </head>
 <body>
-<h1 th:text="'Index Page!'">Index Page</h1>
+
 
 </body>
+
+<div class="topnav">
+
+    <a th:href="@{/find}">FIND OWNERS</a>
+    <a th:href="@{/vets}">LIST OF VETS</a>
+    <a th:href="@{/drugs}">DRUG DB</a>
+</div>
+
+<h1 th:text="'Index Page!'">Index Page</h1>
 
 <p>WSZYSTKIE DZIALAJACE LINKI Z OPISAMI</p>
 <a th:href="@{'/vets'}">WYSWIETLA LISTE WETERYNARZY</a>

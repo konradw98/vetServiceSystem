@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>List of Drugs</title>
+</head>
+<body>
+<h1 th:text="'List of Drugs'">List of Vet</h1>
+<table>
+    <thead>
+    <tr>
+        <th>NAME</th>
+        <th>DESCRIPTION</th>
+        <th>LINK</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="drug: ${drugs}">
+        <td th:text="${drug.name}">NAME</td>
+        <td th:text="${drug.description}">DESCRIPTION</td>
+       <!-- <td th:text="${drug.link}">LINK</td>-->
+
+        <td><form action=# th:action="${drug.link}">
+
+            <input type="submit" value="SHOW MORE INFO!"/>
+        </form></td>
+
+    </tr>
+    </tbody>
+
+</table>
+
+
+</body>
+</html>
