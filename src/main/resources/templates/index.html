@@ -20,21 +20,13 @@
     <a th:href="@{/drugs}">DRUG DB</a>
 </div>
 
-<h1 th:text="'HELLO KONRAD!'">Index Page</h1>
+<h1 th:text="'WELCOME IN VetServiceSystem!'">Index Page</h1>
+<p>YOU HAVE  <span th:text="${visits}">NUM OF VISITS</span> VISITS</p>
+<p>YOU HAVE  <span th:text="${owners}">NUM OF OWNERS</span> OWNERS</p>
+<p>YOU HAVE  <span th:text="${pets}">NUM OF PETS</span> PETS</p>
+<p>YOU HAVE  <span th:text="${vets}">NUM OF VETS</span> VETS</p>
 
-<!--<p>WSZYSTKIE DZIALAJACE LINKI Z OPISAMI</p>
-<a th:href="@{'/vets'}">WYSWIETLA LISTE WETERYNARZY</a>
-<br>
-<a th:href="@{/vets}">WYSWIETLA LISTE WETERYNARZY2</a>
-<br>
-<a th:href="@{'owners/index'}">WYSWIETLA LISTE WLASCICIELI</a>
-<br>
-<a th:href="@{'/welcome'}">WYSWIETLA NAPIS WELCOME</a>
-<br>
-<a th:href="@{'/owners/new'}">DODAJE NOWEGO WLASCICIELA</a>
-<br>
-<a th:href="@{'/owners/1'}">ZWRACA WLASCICIELA PO ID W TYM PRZYPADKU DLA ID =1</a>
-<br>
-<a th:href="@{'find'}">POZWALA WYSZUKAC WLASCICIELA PO NAZWISKU</a>-->
+
+
 </body>
 </html>

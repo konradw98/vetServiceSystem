@@ -16,4 +16,9 @@ public interface OwnerRepository extends JpaRepository<Owner, Long> {
     @Query("SELECT DISTINCT owner FROM Owner owner left join fetch owner.pets WHERE owner.lastName LIKE :lastName%")
     @Transactional(readOnly = true)
     List<Owner> findByLastName(@Param("lastName") String lastName);
+
+   @Query(nativeQuery = true, value = "SELECT COUNT(*) FROM owners")
+    int countOwners();
+
+
 }
