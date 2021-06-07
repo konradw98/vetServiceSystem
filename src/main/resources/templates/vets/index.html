@@ -5,6 +5,19 @@
     <title>List of Owners</title>
 </head>
 <body>
+<style>
+    #topnav{
+        text-align: right;
+    }
+</style>
+
+<div id="topnav">
+    <a th:href="@{/index}">HOME</a>
+
+    <a th:href="@{/find}">FIND OWNERS</a>
+    <a th:href="@{/vets}">LIST OF VETS</a>
+    <a th:href="@{/drugs}">DRUG DB</a>
+</div>
 <h1 th:text="'List of Vets'">List of Vet</h1>
 <table>
     <thead>

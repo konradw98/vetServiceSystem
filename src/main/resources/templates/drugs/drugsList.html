@@ -5,6 +5,18 @@
     <title>List of Drugs</title>
 </head>
 <body>
+<style>
+    #topnav{
+        text-align: right;
+    }
+</style>
+
+<div id="topnav">
+    <a th:href="@{/index}">HOME</a>
+    <a th:href="@{/find}">FIND OWNERS</a>
+    <a th:href="@{/vets}">LIST OF VETS</a>
+    <a th:href="@{/drugs}">DRUG DB</a>
+</div>
 <h1 th:text="'List of Drugs'">List of Vet</h1>
 <table>
     <thead>

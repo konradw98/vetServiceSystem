@@ -1,6 +1,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <body>
+<style>
+  #topnav{
+    text-align: right;
+  }
+</style>
+
+<div id="topnav">
+  <a th:href="@{/index}">HOME</a>
+
+  <a th:href="@{/find}">FIND OWNERS</a>
+  <a th:href="@{/vets}">LIST OF VETS</a>
+  <a th:href="@{/drugs}">DRUG DB</a>
+</div>
 
   <h2>Find Owners</h2>
 

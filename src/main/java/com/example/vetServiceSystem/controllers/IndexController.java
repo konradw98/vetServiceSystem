@@ -29,7 +29,6 @@ public class IndexController {
         model.addAttribute("visits",numOfVisits);
 
 
-
         return "index";
     }
     @RequestMapping("/welcome")
