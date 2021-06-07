@@ -5,20 +5,24 @@
     <title>Pet Clinic Index</title>
 </head>
 <body>
+<style>
+    #topnav{
+        text-align: right;
+    }
+</style>
 
 
-</body>
 
-<div class="topnav">
 
+<div id="topnav">
     <a th:href="@{/find}">FIND OWNERS</a>
     <a th:href="@{/vets}">LIST OF VETS</a>
     <a th:href="@{/drugs}">DRUG DB</a>
 </div>
 
-<h1 th:text="'Index Page!'">Index Page</h1>
+<h1 th:text="'HELLO KONRAD!'">Index Page</h1>
 
-<p>WSZYSTKIE DZIALAJACE LINKI Z OPISAMI</p>
+<!--<p>WSZYSTKIE DZIALAJACE LINKI Z OPISAMI</p>
 <a th:href="@{'/vets'}">WYSWIETLA LISTE WETERYNARZY</a>
 <br>
 <a th:href="@{/vets}">WYSWIETLA LISTE WETERYNARZY2</a>
@@ -31,5 +35,6 @@
 <br>
 <a th:href="@{'/owners/1'}">ZWRACA WLASCICIELA PO ID W TYM PRZYPADKU DLA ID =1</a>
 <br>
-<a th:href="@{'find'}">POZWALA WYSZUKAC WLASCICIELA PO NAZWISKU</a>
+<a th:href="@{'find'}">POZWALA WYSZUKAC WLASCICIELA PO NAZWISKU</a>-->
+</body>
 </html>
