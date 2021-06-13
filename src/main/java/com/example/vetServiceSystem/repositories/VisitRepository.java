@@ -8,10 +8,12 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VisitRepository extends JpaRepository<Visit, Long> {
 
-    //@Query(value="SELECT * FROM meal WHERE meal.id=?1",nativeQuery = true)
-    //    Meal getMealById(int email);
+
 
     @Query(value="SELECT * FROM visits WHERE id=?",nativeQuery = true)
     Visit geVisitById(long id);
+
+    @Query(nativeQuery = true, value = "SELECT COUNT(*) FROM visits")
+    int countVisit();
 
 }

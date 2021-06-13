@@ -146,6 +146,13 @@ public class OwnerController {
         return mav;
     }
 
+   // pets/new/savePet/owner/3
+  /* @GetMapping("pets/new/savePet/owner/{ownerId}")
+   public ModelAndView showOwner1(@PathVariable Long ownerId) {
+       ModelAndView mav = new ModelAndView("owners/ownerDetails");
+       mav.addObject(ownerService.findById(ownerId));
+       return mav;
+   }*/
     @GetMapping("/ownersFind")
     public String processFindForm(Owner owner, BindingResult result, Model model){
         // allow parameterless GET request for /owners to return all records

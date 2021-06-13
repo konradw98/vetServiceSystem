@@ -3,45 +3,153 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="newVetsStyle.css">
     <title>new_meal</title>
+
+    <style>
+        * {
+            text-align: center;
+            box-sizing: border-box;
+            /* text-align: center; */
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            /* background-image: linear-gradient(145deg, white 40%, rgb(214, 255, 212) 80%); */
+            background-color: rgb(255, 230, 230);
+            /* background-color: antiquewhite; */
+            height: 100vh;
+        }
+
+
+        table {
+            width: 750px;
+            border-collapse: collapse;
+            margin: 50px auto;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        td,
+        th {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .labels tr td {
+            background-color: #2cc16a;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .label tr td label {
+            display: block;
+        }
+
+
+        [data-toggle="toggle"] {
+            display: none;
+        }
+
+        .topnav {
+            text-align: right;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .topnav a {
+            padding: 5px;
+            box-sizing: border-box;
+            border: black 1px solid;
+            text-decoration: none;
+            background-color: rgb(204, 204, 204);
+        }
+
+        h1 {
+            padding-top: 200px;
+        }
+
+        button {
+            font-size: 30px;
+            float: right;
+            margin: 10px 0;
+            padding: 0 20px;
+        }
+
+        button:hover {
+            background-color: yellowgreen;
+        }
+
+        form td {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        td input {
+            padding: 0 10px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .topnav a:hover {
+            background-color: aqua;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div id="wrapper">
-        <div align="center">
-            <h1>Dodaj nowego weterynarza</h1>
-            <br />
 
-            <form action="#" th:action="@{save}" th:object="${vet}" method="post">
-                <table border="0" cellpadding="10">
-                    <tr>
-                        <td>Imię:</td>
-                        <td><input type="text" th:field="*{firstName}" /></td>
-                    </tr>
-                    <tr>
-                        <td>Nazwisko:</td>
-                        <td><input type="text" th:field="*{lastName}" /></td>
-                    </tr>
-                    <tr>
-                        <td>Specjalność:</td>
-                        <td><input type="text" /></td>
-                    </tr>
-
-                    <tr>
-                        <td colspan="2"><button type="submit">Zapisz</button></td>
-                    </tr>
-                </table>
-
-
-
-            </form>
+<div id="wrapper">
+    <nav>
+        <div class="topnav">
+            <a th:href="@{/index}">HOME</a>
+            <a th:href="@{/find}">FIND OWNERS</a>
+            <a th:href="@{/vets}">LIST OF VETS</a>
+            <a th:href="@{/drugs}">DRUG DB</a>
         </div>
+    </nav>
+
+
+    <div align="center">
+        <h1>Create New Vet</h1>
+        <br />
+
+        <form action="#" th:action="@{save}" th:object="${vet}" method="post">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>Vet First Name:</td>
+                    <td><input type="text" th:field="*{firstName}" /></td>
+                </tr>
+                <tr>
+                    <td>vet Last Name:</td>
+                    <td><input type="text" th:field="*{lastName}" /></td>
+                </tr>
+                <tr>
+                    <td>Speciality:</td>
+                    <td><input type="text" /></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button></td>
+                </tr>
+            </table>
+
+
+
+        </form>
     </div>
+</div>
 </body>
 
 </html>

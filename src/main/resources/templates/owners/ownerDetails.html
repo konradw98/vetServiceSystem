@@ -1,96 +1,192 @@
 <!DOCTYPE html>
 
-<html lang="pl" xmlns:th="https://www.thymeleaf.org">
-
-<head>
-    <!-- <meta charset="UTF-8"/> -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owner Details Index</title>
-
-    <link rel="stylesheet" href="ownerDetailsStyle.css">
-</head>
+<html xmlns:th="https://www.thymeleaf.org">
 
 <body>
+<style>
+    * {
+      text-align: center;
+            box-sizing: border-box;
+            /* text-align: center; */
+            margin: 0;
+            padding: 0;
+    }
+    #wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            /* background-image: linear-gradient(145deg, white 40%, rgb(214, 255, 212) 80%); */
+            background-color: rgb(255, 230, 230);
+            /* background-color: antiquewhite; */
+            height: 100%;
+        }
 
-    <div id="wrapper">
-        <h2>Informacje o właścicielu</h2>
+        .topnav {
+            text-align: right;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .topnav a {
+            padding: 5px;
+            box-sizing: border-box;
+            border: black 1px solid;
+            text-decoration: none;
+            background-color: rgb(204, 204, 204);
+        }
+
+        h1 {
+            padding-top: 200px;
+        }
+
+        button {
+            font-size: 30px;
+            float: right;
+            margin: 10px 0;
+            padding: 0 20px;
+        }
+
+        button:hover {
+            background-color: yellowgreen;
+        }
+
+        form td {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        td input {
+            padding: 0 10px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .topnav a:hover {
+            background-color: aqua;
+        }
+    table {
+        width: 750px;
+        border-collapse: collapse;
+        margin:50px auto;
+    }
+
+    th {
+        background: #3498db;
+        color: white;
+        font-weight: bold;
+    }
+
+    td, th {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .labels tr td {
+        background-color: #2cc16a;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .label tr td label {
+        display: block;
+    }
 
 
-        <table class="table table-striped" th:object="${owner}">
-            <tr>
-                <th>Imię i nazwisko:</th>
-                <td><b th:text="*{firstName + ' ' + lastName}"></b></td>
-            </tr>
-            <tr>
-                <th>Adres</th>
-                <td th:text="*{address}"></td>
-            </tr>
-            <tr>
-                <th>Miasto:</th>
-                <td th:text="*{city}"></td>
-            </tr>
-            <tr>
-                <th>Telefon:</th>
-                <td th:text="*{telephone}"></td>
-            </tr>
-        </table>
+    [data-toggle="toggle"] {
+        display: none;
+    }
+</style>
 
-        <!--<a th:href="@{{id}/edit(id=${owner.id})}" class="btn btn-default">Edit
+<div id="wrapper">
+  <nav>
+      <div class="topnav">
+          <a th:href="@{/index}">HOME</a>
+          <a th:href="@{/find}">FIND OWNERS</a>
+          <a th:href="@{/vets}">LIST OF VETS</a>
+          <a th:href="@{/drugs}">DRUG DB</a>
+      </div>
+  </nav>
+
+
+<h2>Owner Information</h2>
+
+
+<table class="table table-striped" th:object="${owner}">
+  <tr>
+    <th>Name</th>
+    <td><b th:text="*{firstName + ' ' + lastName}"></b></td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td th:text="*{address}"></td>
+  </tr>
+  <tr>
+    <th>City</th>
+    <td th:text="*{city}"></td>
+  </tr>
+ <tr>
+    <th>Telephone</th>
+    <td th:text="*{telephone}"></td>
+  </tr>
+</table>
+
+<!--<a th:href="@{{id}/edit(id=${owner.id})}" class="btn btn-default">Edit
   Owner</a>-->
-        <a th:href="@{/pets/new/{id}(id=${owner.id})}" class="btn btn-default" href="a">Dodaj zwierzę</a>
-        <a th:href="@{/delete/{id}(id=${owner.id})}" class="btn btn-default" href="a">Usuń właściciela</a>
+<a th:href="@{/pets/new/{id}(id=${owner.id})}" class="btn btn-default">Add New Pet</a>
+<a th:href="@{/delete/{id}(id=${owner.id})}" class="btn btn-default">DELETE OWNER</a>
 
-        <br />
-        <br />
-        <br />
-        <h2>Zwierzęta i ich wizyty</h2>
+<br />
+<br />
+<br />
+<h2>Pets and Visits</h2>
 
-        <table class="table table-striped">
+<table class="table table-striped">
 
-            <tr th:each="pet : ${owner.pets}">
-                <td><a
-              th:href="@{delete/pet/{petId}(petId=${pet.id})}" href="a">Usuń zwierzę</a></td>
-                <td valign="top">
-                    <dl class="dl-horizontal">
-                        <dt>Imię:</dt>
-                        <dd th:text="${pet.name}"></dd>
-                        <dt>Data urodzenia:</dt>
-                        <dd th:text="${pet.birthDate}"></dd>
-                        <dt>Rasa:</dt>
-                        <dd th:text="${pet.petType}"></dd>
-                    </dl>
-                </td>
-                <td valign="top">
-                    <table class="table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Data wizyty:</th>
-                                <th>Opis:</th>
-                            </tr>
-                        </thead>
-                        <tr th:each="visit : ${pet.visits}">
-                            <td th:text="${visit.date}"></td>
-                            <td th:text="${visit?.description}"></td>
-                            <td><a
-                   th:href="@{delete/visit/{visitId}(visitId=${visit.id})}" href="a">Usuń wizytę</a></td>
-                        </tr>
-                        <tr>
-                            <!-- <td><a delete/visit/{visitId}
+  <tr th:each="pet : ${owner.pets}">
+      <td><a
+              th:href="@{delete/pet/{petId}(petId=${pet.id})}"> DELETE PET</a></td>
+    <td valign="top">
+      <dl class="dl-horizontal">
+        <dt>Name</dt>
+        <dd th:text="${pet.name}"></dd>
+        <dt>Birth Date</dt>
+        <dd
+                th:date="${pet.birthDate}"></dd>
+        <dt>Type</dt>
+        <dd th:text="${pet.petType}"></dd>
+      </dl>
+    </td>
+    <td valign="top">
+      <table class="table-condensed">
+        <thead>
+        <tr>
+          <th>Visit Date</th>
+          <th>Description</th>
+        </tr>
+        </thead>
+       <tr th:each="visit : ${pet.visits}">
+          <td th:text="${visit.date}"></td>
+          <td th:text="${visit?.description}"></td>
+           <td><a
+                   th:href="@{delete/visit/{visitId}(visitId=${visit.id})}"> DELETE VISIT</a></td>
+        </tr>
+        <tr>
+         <!-- <td><a delete/visit/{visitId}
                   th:href="@{{ownerId}/pets/{petId}/edit(ownerId=${owner.id},petId=${pet.id})}">Edit
             Pet</a></td>-->
-                            <td><a
-                  th:href="@{/pets/visits/new/{petId}(petId=${pet.id})}" href="a">Dodaj wizytę</a></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+          <td><a
+                  th:href="@{/pets/visits/new/{petId}(petId=${pet.id})}">Add
+            Visit</a></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-        </table>
-
-    </div>
-
+</table>
+</div>
 </body>
 
 </html>

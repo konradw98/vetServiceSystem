@@ -1,39 +1,139 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Clinic Index</title>
-
-    <link rel="stylesheet" href="indexVetsStyle.css">
+    <meta charset="UTF-8"/>
     <title>List of Owners</title>
+
+    <style>
+        * {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            /* background-image: linear-gradient(145deg, white 40%, rgb(214, 255, 212) 80%); */
+            background-color: rgb(255, 230, 230);
+            /* background-color: antiquewhite; */
+            height: 100vh;
+        }
+
+        table {
+            width: 750px;
+            border-collapse: collapse;
+            margin:50px auto;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+
+        td, th {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .labels tr td {
+            background-color: #2cc16a;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .label tr td label {
+            display: block;
+        }
+
+
+        [data-toggle="toggle"] {
+            display: none;
+        }
+        .topnav {
+            text-align: right;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .topnav a {
+            padding: 5px;
+            box-sizing: border-box;
+            border: black 1px solid;
+            text-decoration: none;
+            background-color: rgb(204, 204, 204);
+        }
+
+        h1 {
+            padding-top: 200px;
+        }
+
+        button {
+            font-size: 30px;
+            float: right;
+            margin: 10px 0;
+            padding: 0 20px;
+        }
+
+        button:hover {
+            background-color: yellowgreen;
+        }
+
+        form td {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        td input {
+            padding: 0 10px;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        .topnav a:hover {
+            background-color: aqua;
+        }
+    </style>
 </head>
-
 <body>
-    <div id="wrapper">
-        <h1 th:text="'List of Vets'">Lista weterynarzy</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Numer ID</th>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="vet: ${vets}">
-                    <td th:text="${vet.firstName}">firstName</td>
-                    <td th:text="${vet.lastName}">lastName</td>
 
-                </tr>
-            </tbody>
 
-        </table>
-        <a th:href="@{'/owners'}">OWNERS-LIST</a>
-        <a th:href="@{'/owners/find'}">OWNER-BY-ID</a>
-    </div>
+
+<div id="wrapper">
+    <nav>
+        <div class="topnav">
+            <a th:href="@{/index}">HOME</a>
+            <a th:href="@{/find}">FIND OWNERS</a>
+            <a th:href="@{/vets}">LIST OF VETS</a>
+            <a th:href="@{/drugs}">DRUG DB</a>
+        </div>
+    </nav>
+    <h1 th:text="'List of Vets'">List of Vet</h1>
+    <table>
+        <thead>
+        <tr>
+
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="vet: ${vets}">
+            <td th:text="${vet.firstName}">firstName</td>
+            <td th:text="${vet.lastName}">lastName</td>
+
+        </tr>
+        </tbody>
+
+    </table>
+    <!-- <a th:href="@{'/owners'}">OWNERS-LIST</a>
+    <a th:href="@{'/owners/find'}">OWNER-BY-ID</a> -->
+</div>
 </body>
-
 </html>

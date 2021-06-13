@@ -1,44 +1,142 @@
-<!DOCTYPE html>
-<html lang="pl" xmlns:th="http://www.thymeleaf.org">
-
-<head>
-    <!-- <meta charset="UTF-8"/> -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Clinic Index</title>
-
-    <link rel="stylesheet" href="findOwnersStyle.css">
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <body>
-    <div id="wrapper">
-        <h2>Znajdź właściciela</h2>
+<style>
+  * {
+    text-align: center;
+    box-sizing: border-box;
+    /* text-align: center; */
+    margin: 0;
+    padding: 0;
+  }
 
-        <form th:object="${owner}" th:action="@{ownersFind}" method="get" class="form-horizontal"
-            id="search-owner-form">
-            <div class="form-group">
-                <div class="control-group" id="lastNameGroup">
-                    <label class="col-sm-2 control-label">Nazwisko: </label>
-                    <div class="col-sm-10">
-                        <input class="form-control" th:field="*{lastName}" size="30" maxlength="80" /> <span class="help-inline"><div
+  #wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0;
+        /* background-image: linear-gradient(145deg, white 40%, rgb(214, 255, 212) 80%); */
+        background-color: rgb(255, 230, 230);
+        /* background-color: antiquewhite; */
+        height: 100vh;
+    }
+
+    .topnav {
+        text-align: right;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .topnav a {
+        padding: 5px;
+        box-sizing: border-box;
+        border: black 1px solid;
+        text-decoration: none;
+        background-color: rgb(204, 204, 204);
+    }
+
+    h1 {
+        padding-top: 200px;
+    }
+
+    button {
+        font-size: 30px;
+        float: center;
+        margin: 10px 0;
+        padding: 0 20px;
+    }
+
+    button:hover {
+        background-color: yellowgreen;
+    }
+
+    form td {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    td input {
+        padding: 0 10px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .topnav a:hover {
+        background-color: aqua;
+    }
+
+  table {
+    width: 750px;
+    border-collapse: collapse;
+    margin:50px auto;
+  }
+
+  th {
+    background: #3498db;
+    color: white;
+    font-weight: bold;
+  }
+
+  td, th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  .labels tr td {
+    background-color: #2cc16a;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .label tr td label {
+    display: block;
+  }
+
+
+  [data-toggle="toggle"] {
+    display: none;
+  }
+</style>
+
+<div id="wrapper">
+  <nav>
+      <div class="topnav">
+          <a th:href="@{/index}">HOME</a>
+          <a th:href="@{/find}">FIND OWNERS</a>
+          <a th:href="@{/vets}">LIST OF VETS</a>
+          <a th:href="@{/drugs}">DRUG DB</a>
+      </div>
+  </nav>
+
+  <h2>Find Owners</h2>
+
+  <form th:object="${owner}" th:action="@{ownersFind}" method="get"
+    class="form-horizontal" id="search-owner-form">
+    <div class="form-group">
+      <div class="control-group" id="lastNameGroup">
+        <label class="col-sm-2 control-label">Last name </label>
+        <div class="col-sm-10">
+          <input class="form-control" th:field="*{lastName}" size="30"
+            maxlength="80" /> <span class="help-inline"><div
               th:if="${#fields.hasAnyErrors()}">
               <p th:each="err : ${#fields.allErrors()}" th:text="${err}">Error</p>
             </div></span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Wykonaj</button>
-                </div>
-            </div>
-
-        </form>
-
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Find
+          Owner</button>
+      </div>
     </div>
 
+  </form>
+
+
+</div>
 
 </body>
-
 </html>

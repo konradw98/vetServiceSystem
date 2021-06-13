@@ -1,62 +1,78 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="http: //www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- <meta charset="UTF-8"/> -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
     <title>Pet Clinic Index</title>
 
-    <link rel="stylesheet" href="style_index.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+            /* background-color: aquamarine; */
+        }
+
+        #wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            /* background-image: linear-gradient(145deg, white 40%, rgb(214, 255, 212) 80%); */
+            background-color: rgb(255, 230, 230);
+            /* background-color: antiquewhite; */
+            height: 100vh;
+        }
+
+        .topnav {
+            text-align: right;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .topnav a {
+            padding: 5px;
+            box-sizing: border-box;
+            border: black 1px solid;
+            text-decoration: none;
+            background-color: rgb(204, 204, 204);
+        }
+
+        .topnav a:hover {
+            background-color: aqua;
+        }
+
+        footer h1 {
+            padding: 10px;
+        }
+
+        footer p{
+            padding: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="wrapper">
-        <h1 th:text="'Index Page!'"></h1>
-        <header>
-            <div>eVetService</div>
-            <div>Obsługa wizyt dla przychodni weterynaryjnej</div>
-            <div> 
-                <p>Kontakt:
-                </p>
-                <p>e-mail: evetservice@gmail.com
-                </p>
-                <p>telefon: + 48 310 320 330
-                </p>
-            </div>
-            <img class="firstphoto" src="photo2.jpg" />
-            <!-- <img src="photo2.jpg"/> -->
+<div id="wrapper">
+    <nav>
+        <div class="topnav">
+            <a th:href="@{/index}">HOME</a>
+            <a th:href="@{/find}">FIND OWNERS</a>
+            <a th:href="@{/vets}">LIST OF VETS</a>
+            <a th:href="@{/drugs}">DRUG DB</a>
+        </div>
+    </nav>
 
-            <!-- <a href="https://pl.freepik.com/zdjecia/medyczny">Medyczny zdjęcie utworzone przez freepik - pl.freepik.com</a> -->
+    <footer>
+        <h1 th:text="'WELCOME IN VetServiceSystem!'">VetServiceSystem</h1>
+        <p>YOU HAVE <span th:text="${visits}">NUM OF VISITS</span> VISITS</p>
+        <p>YOU HAVE <span th:text="${owners}">NUM OF OWNERS</span> OWNERS</p>
+        <p>YOU HAVE <span th:text="${pets}">NUM OF PETS</span> PETS</p>
+        <p>YOU HAVE <span th:text="${vets}">NUM OF VETS</span> VETS</p>
+    </footer>
 
-        </header>
-
-        <nav>
-            <!-- <p>WSZYSTKIE DZIALAJACE LINKI Z OPISAMI</p> -->
-            <a class="menu" th:href="@{'/vets'}">LISTA WETERYNARZY</a>
-            <br>
-            <a class="menu" th:href="@{/vets}">LISTA WETERYNARZY 2</a>
-            <br>
-            <a class="menu" th:href="@{'owners/index'}">WYŚWIETL LISTĘ WŁAŚCICIELI</a>
-            <br>
-            <!-- <a class="menu" th:href="@{'/welcome'}">WYŚWIETL NAPIS WELCOME</a> -->
-            <br>
-            <a class="menu" th:href="@{'/owners/new'}">DODAJ NOWEGO WŁAŚCICIELA</a>
-            <br>
-            <a class="menu" th:href="@{'/owners/1'}">ZWRÓĆ WŁAŚCICIELA PO ID (W TYM PRZYPADKU DLA ID =1)</a>
-            <br>
-            <a class="menu" th:href="@{'find'}">WYSZUKAJ WŁAŚCICIELA PO NAZWISKU</a>
-        </nav>
-
-        <footer>
-            <div></div>
-        </footer>
-
-
-
-    </div>
-
+</div>
 </body>
 
 </html>

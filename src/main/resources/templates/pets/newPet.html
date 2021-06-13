@@ -1,49 +1,153 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="newPetsStyle.css">
     <title>new_meal</title>
 </head>
 
 <body>
-    <div id="wrapper">
+<style>
+    * {
+        text-align: center;
+        box-sizing: border-box;
+        /* text-align: center; */
+        margin: 0;
+        padding: 0;
+    }
 
-        <div align="center">
-            <h1>Dodaj nowe zwierzę</h1>
-            <br />
+    #wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0;
+        /* background-image: linear-gradient(145deg, white 40%, rgb(214, 255, 212) 80%); */
+        background-color: rgb(255, 230, 230);
+        /* background-color: antiquewhite; */
+        height: 100vh;
+    }
 
-            <form action="#" th:action="@{savePet/owner/{id}(id=${ownerId})}" th:object="${pet}" method="post">
-                <table border="0" cellpadding="10">
-                    <tr>
-                        <td>Imię:</td>
-                        <td><input type="text" th:field="*{name}" /></td>
-                    </tr>
-                    <tr>
-                        <td>Numer ID:</td>
-                        <td><input type="text" th:field="*{petType}" /></td>
-                    </tr>
-                    <tr>
-                        <td>Data urodzenia: (FORMAT: 2010-05-08) </td>
-                        <td><input type="text" th:field="*{birthDate}" /></td>
-                    </tr>
+    .topnav {
+        text-align: right;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    .topnav a {
+        padding: 5px;
+        box-sizing: border-box;
+        border: black 1px solid;
+        text-decoration: none;
+        background-color: rgb(204, 204, 204);
+    }
+
+    h1 {
+        padding-top: 200px;
+    }
+
+    button {
+        font-size: 30px;
+        float: right;
+        margin: 10px 0;
+        padding: 0 20px;
+    }
+
+    button:hover {
+        background-color: yellowgreen;
+    }
+
+    form td {
+        font-size: 30px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    td input {
+        padding: 0 10px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .topnav a:hover {
+        background-color: aqua;
+    }
+
+    table {
+        width: 750px;
+        border-collapse: collapse;
+        margin: 50px auto;
+    }
+
+    th {
+        background: #3498db;
+        color: white;
+        font-weight: bold;
+    }
+
+    td,
+    th {
+        padding: 10px;
+        border: 1px solid #ccc;
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .labels tr td {
+        background-color: #2cc16a;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .label tr td label {
+        display: block;
+    }
 
 
+    [data-toggle="toggle"] {
+        display: none;
+    }
+</style>
 
-                    <tr>
-                        <td colspan="2"><button type="submit">Zapisz</button></td>
-                    </tr>
-                </table>
-
-
-
-            </form>
+<div id="wrapper">
+    <nav>
+        <div class="topnav">
+            <a th:href="@{/index}">HOME</a>
+            <a th:href="@{/find}">FIND OWNERS</a>
+            <a th:href="@{/vets}">LIST OF VETS</a>
+            <a th:href="@{/drugs}">DRUG DB</a>
         </div>
+    </nav>
+
+    <div align="center">
+        <h1>Create New Pet</h1>
+        <br />
+
+        <form action="#" th:action="@{savePet/owner/{id}(id=${ownerId})}" th:object="${pet}" method="post">
+            <table border="0" cellpadding="10">
+                <tr>
+                    <td>name:</td>
+                    <td><input type="text" th:field="*{name}" /></td>
+                </tr>
+                <tr>
+                    <td>type id</td>
+                    <td><input type="text" th:field="*{petType}" /></td>
+                </tr>
+                <tr>
+                    <td>birth date:</td>
+                    <td><input type="date" th:field="*{birthDate}" /></td>
+                </tr>
+
+
+
+                <tr>
+                    <td colspan="2"><button type="submit">Save</button></td>
+                </tr>
+            </table>
+
+
+
+        </form>
     </div>
+</div>
 </body>
 
 </html>
